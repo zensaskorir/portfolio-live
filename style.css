@@ -139,6 +139,7 @@ p {
 
 /* Cards */
 .cards {
+  margin-top: 2em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
@@ -165,6 +166,12 @@ p {
   /*Removing display grid*/
   display: flex;
   flex-direction: column;
+}
+
+/* STyling of Technologies used */
+#Technologies li {
+  list-style: none;
+  margin: 0 1em;
 }
 
 .contact-form input,
@@ -335,3 +342,54 @@ body.dark footer {
 body.dark .nav-links li a:hover {
   color: #00aaff;
 }
+/* Style for Typing out Front End  */
+.hero-text p span {
+  display: inline-block;
+  /* overflow: hidden; */
+  white-space: nowrap;
+  border-right: 3px solid;
+  width: 0;
+  animation: typing 3s steps(13, end) forwards,
+             blink 0.7s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 17ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Style for Animated Gradient text for my Name */
+.hero-text span {
+  background: linear-gradient(
+    90deg,
+    #007bff,
+    #856d02,
+    #ffc400,
+    #007bff
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
