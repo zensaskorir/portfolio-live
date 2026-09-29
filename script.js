@@ -37,3 +37,34 @@
     toggleBtn.innerHTML = isDark ? lightbtn : darkbtn;
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
+
+//   https://script.google.com/macros/s/AKfycbzu6qxZXZNhEjGUgXIcQ-2nrMILwQmBmtsZ2sXkXk-j1PkPsfMVnjJv-wj9tLVW6Byr/exec
+
+// script for data colection from the form to saving
+
+
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbzu6qxZXZNhEjGUgXIcQ-2nrMILwQmBmtsZ2sXkXk-j1PkPsfMVnjJv-wj9tLVW6Byr/exec'
+	const form = document.forms['Incoming-Portfolio-Communications']
+
+	form.addEventListener('submit', e => {
+		e.preventDefault()
+		fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+			.then(response => response.json())
+			.then(response => console.log('Success!', response))
+			.catch(error => console.error('Error!', error.message))
+	})
+
+ const con = document.getElementById('contact-yes');
+const element = document.querySelector('.contact-form');
+
+con.addEventListener('click', () => {
+
+    element.classList.toggle('contact-form');
+
+    if (element.classList.contains('contact-form')) {
+        con.innerText = 'Yes';
+    } else {
+        con.innerText = 'No';
+    }
+
+});

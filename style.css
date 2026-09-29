@@ -457,3 +457,21 @@ body.dark .nav-links li a:hover {
     height: 60px;
 }
 
+/* Form Styles */
+.input-fields{
+  margin: 2em;
+}
+
+.input-fields input{
+  padding: 1em 3em;
+  font-size: 0.8em;
+}
+
+.contact-form{
+  display: none;
+}
+
+#contact-yes{
+  color: #005bcc;
+  cursor: pointer;
+}
