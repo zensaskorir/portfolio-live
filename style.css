@@ -483,3 +483,11 @@ body.dark .nav-links li a:hover {
   color: #005bcc;
   cursor: pointer;
 }
+.form-submit-successful {
+    display: none;
+    color: blue;
+}
+
+.form-submit-successful.show {
+    display: block;
+}

@@ -76,10 +76,11 @@ con.addEventListener('click', () => {
                         <label>If you are human, leave this blank:</label>
                         <input type="text" name="mobile_number">
                     </div>
+                    <div class="form-submit-successful">Form Submitted Successfully</div>
 
                     <button type="submit" id="btn-send" class="btn">Send</button>
                 </form>
-
+                
             </div>
         </div>
     `;
@@ -96,19 +97,36 @@ con.addEventListener('click', () => {
 	const scriptURL = 'https://script.google.com/macros/s/AKfycbzu6qxZXZNhEjGUgXIcQ-2nrMILwQmBmtsZ2sXkXk-j1PkPsfMVnjJv-wj9tLVW6Byr/exec'
 	const form = document.forms['Incoming-Portfolio-Communications']
 
-	form.addEventListener('submit', e => {
-		e.preventDefault()
-		fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-			.then(response => response.json())
-			.then(response => console.log('Success!', response))
-			.catch(error => console.error('Error!', error.message))
-	})
-   form.reset();
+const successMessage = document.querySelector('.form-submit-successful');
+
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form),
+        mode: 'no-cors'
+    })
+    .then(() => {
+        form.reset();
+
+        const successMessage =
+            document.querySelector('.form-submit-successful');
+
+        successMessage.classList.add('show');
+
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+        }, 5000);
+    })
+    .catch(error => {
+        console.error('Error!', error);
+    });
+});
 
     } else {
         con.innerText = 'Yes';
         element.classList.toggle('contact-form-d');
     }
-
-
 });
