@@ -398,7 +398,7 @@ body.dark .nav-links li a:hover {
     #007bff
   );
   background-size: 300%;
-  -webkit-background-clip: text;
+  --webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientMove 6s linear infinite;
 }
