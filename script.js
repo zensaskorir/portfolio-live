@@ -118,6 +118,8 @@ form.addEventListener('submit', (e) => {
 
         setTimeout(() => {
             successMessage.classList.remove('show');
+            con.innerText = 'Yes';
+            element.classList.toggle('contact-form-d');
         }, 5000);
     })
     .catch(error => {
