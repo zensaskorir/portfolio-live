@@ -124,13 +124,18 @@ p {
 }
 
 .btn {
-  display: inline-block;
   padding: 10px 20px;
   background: #0077ff;
   color: #fff;
   border-radius: 30px;
   transition: 0.3s, transform 0.3s;
+  width: 40px;
 }
+
+#btn-send{
+  width: 10em;
+  height: 3em;
+  }
 
 .btn:hover {
   background: #005bcc;
@@ -174,15 +179,18 @@ p {
   margin: 0 1em;
 }
 
-/* .contact-form input,
-.contact-form textarea {
-  width: 100%;
+form input,
+form textarea {
+  /* width: 100%; */
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 6px;
   transition: border-color 0.3s, box-shadow 0.3s;
-} */
+}
+form textarea {
+  width: 80%;
+}
 
 .contact-form input:focus,
 .contact-form textarea:focus {
@@ -467,7 +475,7 @@ body.dark .nav-links li a:hover {
   font-size: 0.8em;
 }
 
-.contact-form{
+.contact-form-d{
   display: none;
 }
 

@@ -38,9 +38,59 @@
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 
-//   https://script.google.com/macros/s/AKfycbzu6qxZXZNhEjGUgXIcQ-2nrMILwQmBmtsZ2sXkXk-j1PkPsfMVnjJv-wj9tLVW6Byr/exec
 
-// script for data colection from the form to saving
+ const con = document.getElementById('contact-yes');
+const element = document.querySelector('.contact-form');
+
+con.addEventListener('click', () => {
+
+
+
+        const htmlcontent = `
+        <h2>Form</h2>
+
+        <div class="cards">
+            <div class="card">
+
+                <p>Leave your Message and contacts here...</p>
+
+                <form name="Incoming-Portfolio-Communications">
+                    <input type="hidden"
+                           name="Incoming-Portfolio-Communications"
+                           value="Incoming-Portfolio-Communications" />
+
+                    <div class="input-fields">
+                        <input name="Name" type="text" placeholder="Name" required>
+                        <input name="Email" type="email" placeholder="Email" autocomplete="email" required>
+                        <input name="Phone-Number" type="text" placeholder="Phone Number" required>
+                    </div>
+
+                    <textarea name="Message"
+                              id="message"
+                              placeholder="Type your Message here..."
+                              
+                              maxlength="500"
+                              required></textarea>
+
+                    <div class="form-helper">
+                        <label>If you are human, leave this blank:</label>
+                        <input type="text" name="mobile_number">
+                    </div>
+
+                    <button type="submit" id="btn-send" class="btn">Send</button>
+                </form>
+
+            </div>
+        </div>
+    `;
+
+
+    if (element.classList.contains('contact-form-d')) {
+        con.innerText = 'No';
+        element.innerHTML = htmlcontent;
+        element.classList.toggle('contact-form-d');
+
+        // script for data colection from the form to saving
 
 
 	const scriptURL = 'https://script.google.com/macros/s/AKfycbzu6qxZXZNhEjGUgXIcQ-2nrMILwQmBmtsZ2sXkXk-j1PkPsfMVnjJv-wj9tLVW6Byr/exec'
@@ -53,18 +103,12 @@
 			.then(response => console.log('Success!', response))
 			.catch(error => console.error('Error!', error.message))
 	})
+   form.reset();
 
- const con = document.getElementById('contact-yes');
-const element = document.querySelector('.contact-form');
-
-con.addEventListener('click', () => {
-
-    element.classList.toggle('contact-form');
-
-    if (element.classList.contains('contact-form')) {
-        con.innerText = 'Yes';
     } else {
-        con.innerText = 'No';
+        con.innerText = 'Yes';
+        element.classList.toggle('contact-form-d');
     }
+
 
 });
